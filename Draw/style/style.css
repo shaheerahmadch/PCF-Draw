@@ -1,98 +1,241 @@
+/* Container Styling */
+.pcf-draw-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+}
+
 /* Canvas styling */
 .pcf-draw-canvas {
+    flex: 1;
     border: 1px solid #ccc;
     border-radius: 4px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    max-width: 100%;
-    /* width: 100%; */
-    /* height: calc(100% - 70px); */
+    width: 100%;
+    box-sizing: border-box;
+    touch-action: none;
+    /* Prevent scrolling while drawing */
 }
 
-/* Image upload input styling */
+/* Toolbar Container */
+.pcf-draw-toolbar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: #faf9f8;
+    /* Premium slightly off-white */
+    border-top: 1px solid #edebe9;
+    padding: 6px 12px;
+    height: 48px;
+    /* Slightly taller */
+    box-sizing: border-box;
+    gap: 12px;
+    /* Better spacing */
+    position: relative;
+    box-shadow: 0 -1px 3px rgba(0, 0, 0, 0.02);
+}
+
+/* Common Button Styling (Command Bar Item) */
+.pcf-draw-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    /* More rounded */
+    cursor: pointer;
+    padding: 0 10px;
+    height: 36px;
+    min-width: 36px;
+    color: #333;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: 'Segoe UI', sans-serif;
+    transition: all 0.2s ease-in-out;
+}
+
+.pcf-draw-button:hover {
+    background-color: #ffffff;
+    border-color: #c8c6c4;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.pcf-draw-button:active {
+    background-color: #f3f2f1;
+    transform: translateY(1px);
+}
+
+/* Group Container (Icon + Input) */
+.pcf-draw-group-container {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 2px 6px;
+    border-radius: 4px;
+    border: 1px solid transparent;
+}
+
+.pcf-draw-group-container:hover {
+    background-color: #ffffff;
+    border-color: #e1dfdd;
+}
+
+.pcf-draw-icon-label {
+    display: flex;
+    align-items: center;
+    color: #605e5c;
+}
+
+.pcf-draw-button svg,
+.pcf-draw-icon-label svg {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+}
+
+.pcf-draw-button span {
+    margin-left: 8px;
+    white-space: nowrap;
+}
+
+/* Icon-only button (e.g. More) */
+.pcf-draw-icon-only span {
+    display: none;
+}
+
+.pcf-draw-icon-only {
+    padding: 0;
+    width: 32px;
+}
+
+/* Hide inputs explicitly if needed, but we style them too */
 .pcf-draw-image-upload {
     display: none;
 }
 
+/* Upload Label looking like a button */
 .pcf-draw-image-upload-label {
-    display: inline-block;
-    padding: 10px 15px;
-    background-color: #0078d4;
-    color: white;
-    font-size: 14px;
-    font-weight: bold;
-    border: none;
-    border-radius: 4px;
+    /* Inherit button styles via class in JS or duplicate here */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    border: 1px solid transparent;
+    border-radius: 2px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    padding: 0 8px;
+    height: 32px;
+    color: #333;
+    font-size: 14px;
+    font-family: 'Segoe UI', sans-serif;
 }
 
 .pcf-draw-image-upload-label:hover {
-    background-color: #005a9e;
+    background-color: #f3f2f1;
+    border-color: #c8c6c4;
 }
 
-/* Clear button styling */
-.pcf-draw-clear-button {
-    padding: 10px 15px;
-    background-color: #d9534f;
-    color: white;
-    font-size: 14px;
-    font-weight: bold;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.pcf-draw-clear-button:hover {
-    background-color: #c9302c;
-}
-
-/* Download button styling */
-.pcf-draw-download-button {
-    padding: 10px 15px;
-    background-color: #5cb85c;
-    color: white;
-    font-size: 14px;
-    font-weight: bold;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.pcf-draw-download-button:hover {
-    background-color: #4cae4c;
-}
-
-/* Stroke width input styling */
+/* Inputs styling */
 .pcf-draw-stroke-width {
-    width: 60px;
-    padding: 5px;
-    font-size: 14px;
-    text-align: center;
-    border: 1px solid #ccc;
+    width: 44px;
+    height: 30px;
+    padding: 0 4px;
+    border: 1px solid #e1dfdd;
     border-radius: 4px;
-    margin: 0 5px;
+    text-align: center;
+    background-color: #ffffff;
+    color: #323130;
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 14px;
+    box-sizing: border-box;
+    transition: border-color 0.2s;
 }
 
-/* Color picker styling */
+.pcf-draw-stroke-width:focus {
+    border-color: #0078d4;
+    /* Fluent blue focus */
+    outline: none;
+}
+
 .pcf-draw-color-picker {
-    width: 60px;
-    height: 40px;
-    padding: 5px;
-    border: none;
+    width: 36px;
+    height: 36px;
+    padding: 4px;
+    border: 1px solid transparent;
     border-radius: 4px;
     cursor: pointer;
+    background-color: transparent;
+    box-sizing: border-box;
+    transition: background-color 0.2s;
 }
 
-/* Tools container */
-.pcf-draw-tools-container {
+.pcf-draw-color-picker:hover {
+    background-color: #ffffff;
+    border-color: #c8c6c4;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Separator */
+.pcf-draw-separator {
+    width: 1px;
+    height: 24px;
+    background-color: #c8c6c4;
+    margin: 0 4px;
+}
+
+/* Overflow Menu */
+.pcf-draw-overflow-menu {
+    display: none;
+    /* Hidden by default */
+    position: absolute;
+    bottom: 44px;
+    /* Above toolbar */
+    right: 8px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    border: 1px solid #edebe9;
+    border-radius: 2px;
+    padding: 4px 0;
+    z-index: 1000;
+    min-width: 150px;
+    flex-direction: column;
+}
+
+.pcf-draw-overflow-menu.visible {
     display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: center;
-    margin-top: 10px;
-    background-color: rgb(243, 242, 241);
-    padding: 10px;
-    height: 60px;
+}
+
+/* Items inside overflow */
+.pcf-draw-overflow-menu .pcf-draw-button,
+.pcf-draw-overflow-menu .pcf-draw-image-upload-label {
+    justify-content: flex-start;
+    width: 100%;
+    border: none;
+    height: 40px;
+    padding: 0 12px;
+}
+
+.pcf-draw-overflow-menu .pcf-draw-button span,
+.pcf-draw-overflow-menu .pcf-draw-image-upload-label span {
+    display: inline-block;
+    /* Ensure text is visible in overflow */
+    margin-left: 12px;
+}
+
+/* Inputs in overflow */
+.pcf-draw-overflow-input-container {
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+    height: 40px;
+}
+
+.pcf-draw-overflow-input-container span {
+    margin-right: auto;
+    font-size: 14px;
+    font-family: 'Segoe UI';
 }
