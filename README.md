@@ -14,6 +14,9 @@ The **Draw** component allows users to sketch or sign directly within a Power Ap
 ### Signing Document
 ![Signing Document](Assets/Preview-SigningDocument.png)
 
+### Signing Document Vertical
+![Signing Document Vertical](Assets/Preview-SigningDocumentVertical.png)
+
 ## Download
 
 [Download Solution (Managed)](Solutions/PCFDraw_1_0_0_1_managed.zip)
