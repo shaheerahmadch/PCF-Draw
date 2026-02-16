@@ -19,7 +19,7 @@ The **Draw** component allows users to sketch or sign directly within a Power Ap
 
 ## Download
 
-[Download Solution (Managed)](Solutions/PCFDraw_1_0_0_1_managed.zip)
+[Download Solution (Managed)](Solutions/PCFDraw_1_0_0_2_managed.zip)
 
 ## Features
 
